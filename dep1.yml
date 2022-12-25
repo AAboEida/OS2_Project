@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 3  
+  selector:
+    matchLabels:
+      app: ahmed
+  template:
+    metadata:
+      name: my-web-app
+      labels:
+        app: ahmed
+    spec:
+      containers:
+        - name: nginx-container
+          image: aboeida10/nginx-test
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+
+            
